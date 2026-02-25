@@ -1,0 +1,26 @@
+:root { --primary: #2563eb; --refresh: #6366f1; --bg: #f8fafc; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 20px; }
+.container { max-width: 1100px; margin: auto; }
+.main-layout { display: flex; gap: 20px; }
+.card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+.input-side { flex: 2; }
+.keypad-side { flex: 0.8; position: sticky; top: 20px; }
+
+.btn-container { display: flex; gap: 10px; margin-top: 15px; }
+.btn-pri { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; }
+.btn-sec { background: #64748b; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; }
+.btn-ref { background: var(--refresh); color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; }
+
+.keypad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.keypad-grid button { padding: 15px; font-size: 1.2rem; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; background: white; }
+.btn-clear { color: #ef4444; }
+
+.gantt-chart { display: flex; margin-top: 20px; overflow-x: auto; padding-bottom: 30px; }
+.gantt-block { background: var(--primary); color: white; height: 50px; display: flex; align-items: center; justify-content: center; position: relative; border-right: 1px solid white; min-width: 45px; }
+.gantt-block.idle { background: #cbd5e1; color: #64748b; }
+.time { position: absolute; bottom: -25px; font-size: 11px; font-weight: bold; color: #1e293b; }
+.end-time { right: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
+input { width: 90%; border: 1px solid #cbd5e1; padding: 5px; border-radius: 4px; text-align: center; }

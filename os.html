@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced CPU Scheduler</title>
+    <link rel="stylesheet" href="os.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CPU Scheduling Simulator</h1>
+
+        <div class="main-layout">
+            <div class="input-side">
+                <div class="card">
+                    <h3>1. Configuration</h3>
+                    <div class="config-grid">
+                        <div>
+                            <label>Algorithm:</label>
+                            <select id="algoSelect" onchange="togglePriorityUI()">
+                                <option value="FCFS">FCFS</option>
+                                <option value="SJFS">SJFS (Non-Preemptive)</option>
+                                <option value="Priority">Priority (Non-Preemptive)</option>
+                            </select>
+                        </div>
+                        <div id="prioOrderCont" style="display:none;">
+                            <label>Priority Order:</label>
+                            <select id="priorityOrder">
+                                <option value="low">Lower # = High Priority</option>
+                                <option value="high">Higher # = High Priority</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <table id="inputTable">
+                        <thead>
+                            <tr>
+                                <th>PID</th>
+                                <th>AT</th>
+                                <th>BT</th>
+                                <th class="prio-head" style="display:none;">Prio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="processBody">
+                            <tr>
+                                <td><input type="text" value="P1" readonly></td>
+                                <td><input type="number" class="at" value="0" onclick="setFocus(this)"></td>
+                                <td><input type="number" class="bt" value="5" onclick="setFocus(this)"></td>
+                                <td class="prio-cell" style="display:none;"><input type="number" class="priority" value="1" onclick="setFocus(this)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-container">
+                        <button onclick="addRow()" class="btn-sec">+ Add Process</button>
+                        <button onclick="simulate()" class="btn-pri">Simulate</button>
+                        <button onclick="refreshPage()" class="btn-ref">Refresh</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="keypad-side">
+                <div class="card keypad">
+                    <h4>Numeric Keypad</h4>
+                    <div class="keypad-grid">
+                        <button onclick="keyClick(1)">1</button><button onclick="keyClick(2)">2</button><button onclick="keyClick(3)">3</button>
+                        <button onclick="keyClick(4)">4</button><button onclick="keyClick(5)">5</button><button onclick="keyClick(6)">6</button>
+                        <button onclick="keyClick(7)">7</button><button onclick="keyClick(8)">8</button><button onclick="keyClick(9)">9</button>
+                        <button onclick="keyClear()" class="btn-clear">C</button><button onclick="keyClick(0)">0</button><button onclick="keyDel()">Del</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="outputSection" style="display:none;">
+            <div class="card">
+                <h3 id="ganttTitle">Gantt Chart</h3>
+                <div id="ganttContainer" class="gantt-chart"></div>
+            </div>
+            <div class="card">
+                <h3>Metrics Table</h3>
+                <div id="resultTableContainer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="os.js"></script>
+</body>
+</html>
